@@ -1,11 +1,16 @@
-import { ButtonStyled } from "../Button/Button";
+import { ButtonStyled } from "../ButtonStyled/ButtonStyled";
 import { Container } from "../Container/Container";
+import { HeaderContainer } from "./Header.styled";
 
 export const Header = () => {
   return (
-    <Container>
-      <h3>Logo</h3>
-      <ButtonStyled>Hello</ButtonStyled>
-    </Container>
+    <header>
+      <Container>
+        <HeaderContainer>
+          <h3>Logo</h3>
+          <ButtonStyled>Hello</ButtonStyled>
+        </HeaderContainer>
+      </Container>
+    </header>
   );
 };

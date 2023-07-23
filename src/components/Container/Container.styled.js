@@ -1,15 +1,9 @@
 import styled from "styled-components";
 
-export const HeaderContainer = styled.div`
-  display: flex;
-  justify-content: space-between;
+export const ContainerStyled = styled.div`
   margin: 0 auto;
   min-width: 320px;
-  /* height: 100%; */
-  align-items: center;
-  padding: 15px 30px;
-
-  /* outline: 1px solid red; */
+  outline: 1px solid green;
 
   @media screen and (min-width: 320px) {
     width: 320px;
