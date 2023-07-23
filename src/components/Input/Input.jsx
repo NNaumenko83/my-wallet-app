@@ -1,20 +1,27 @@
 import Input from "@mui/joy/Input";
 
-export default function FocusedRingInput() {
+export default function FocusOutlineInput() {
   return (
     <Input
-      placeholder="Bootstrap"
+      placeholder="Type in here…"
+      size="sm"
       sx={{
-        "--Input-focusedInset": "var(--any, )",
-        "--Input-focusedThickness": "0.1rem",
-        "--Input-focusedHighlight": "rgba(13,110,253,.25)",
+        width: "100%",
         "&::before": {
-          transition: "box-shadow .15s ease-in-out",
+          border: "1.5px solid var(--Input-focusedHighlight)",
+          transform: "scaleX(0)",
+          left: "2.5px",
+          right: "2.5px",
+          bottom: 0,
+          top: "unset",
+          transition: "transform .15s cubic-bezier(0.1,0.9,0.2,1)",
+          borderRadius: 0,
+          borderBottomLeftRadius: "64px 20px",
+          borderBottomRightRadius: "64px 20px",
         },
-        "&:focus-within": {
-          borderColor: "#86b7fe",
+        "&:focus-within::before": {
+          transform: "scaleX(1)",
         },
-        height: "10px",
       }}
     />
   );

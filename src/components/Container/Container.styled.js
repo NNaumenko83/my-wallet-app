@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const ContainerStyled = styled.div`
   margin: 0 auto;
+  padding: 20px;
   min-width: 320px;
   outline: 1px solid green;
 

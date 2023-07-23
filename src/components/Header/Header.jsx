@@ -8,7 +8,7 @@ export const Header = () => {
       <Container>
         <HeaderContainer>
           <h3>Logo</h3>
-          <ButtonStyled>Hello</ButtonStyled>
+          <ButtonStyled>Connect wallet</ButtonStyled>
         </HeaderContainer>
       </Container>
     </header>

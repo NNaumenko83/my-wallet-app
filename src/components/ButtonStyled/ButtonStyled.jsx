@@ -24,6 +24,7 @@ export const ButtonStyled = ({
       variant="solid"
       sx={{
         backgroundColor: "red",
+        width: "100px",
         color: "#373737",
         transition: "background-color 250ms linear",
         ":hover": {
