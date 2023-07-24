@@ -1,6 +1,7 @@
 import { ButtonStyled } from "../ButtonStyled/ButtonStyled";
 import { Container } from "../Container/Container";
 import { HeaderContainer } from "./Header.styled";
+import PropTypes from "prop-types";
 
 export const Header = ({ requestAccount, balance, walletAdress }) => {
   return (
@@ -20,4 +21,10 @@ export const Header = ({ requestAccount, balance, walletAdress }) => {
       </Container>
     </header>
   );
+};
+
+Header.propTypes = {
+  requestAccount: PropTypes.func,
+  balance: PropTypes.string,
+  walletAdress: PropTypes.string,
 };

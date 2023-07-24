@@ -22,6 +22,7 @@ function App() {
         const signer = await provider.getSigner();
 
         const balance = await provider.getBalance(signer.address);
+        console.log("balance:", balance);
 
         const formatted = formatAddress(signer.address);
 
@@ -41,6 +42,7 @@ function App() {
     console.log("transferAmount:", transferAmount);
     console.log("receiverAddress:", receiverAddress);
     console.log("signer", signer);
+    console.log(ethers.parseEther(transferAmount));
     const tx = await signer.sendTransaction({
       to: receiverAddress,
       value: ethers.parseEther(transferAmount),

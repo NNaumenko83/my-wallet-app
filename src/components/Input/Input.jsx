@@ -1,4 +1,5 @@
 import Input from "@mui/joy/Input";
+import PropTypes from "prop-types";
 
 export default function FocusOutlineInput({
   onChange,
@@ -34,3 +35,10 @@ export default function FocusOutlineInput({
     />
   );
 }
+
+FocusOutlineInput.propTypes = {
+  onChange: PropTypes.func,
+  placeholder: PropTypes.string,
+  name: PropTypes.string,
+  value: PropTypes.string,
+};
