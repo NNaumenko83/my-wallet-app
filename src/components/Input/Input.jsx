@@ -1,9 +1,17 @@
 import Input from "@mui/joy/Input";
 
-export default function FocusOutlineInput() {
+export default function FocusOutlineInput({
+  onChange,
+  placeholder,
+  name,
+  value,
+}) {
   return (
     <Input
-      placeholder="Type in here…"
+      placeholder={placeholder}
+      onChange={onChange}
+      name={name}
+      value={value}
       size="sm"
       sx={{
         width: "100%",

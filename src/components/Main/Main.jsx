@@ -1,12 +1,12 @@
 import { Container } from "../Container/Container";
-import { TransferTokenForm } from "../TransferTokonForm/TransferTokenForm";
+import { TransferTokenForm } from "../TransferTokenForm/TransferTokenForm";
 import { MainContainer } from "./Main.styled";
 
-export const Main = () => {
+export const Main = ({...props}) => {
   return (
     <MainContainer>
       <Container>
-        <TransferTokenForm />
+        <TransferTokenForm {...props} />
       </Container>
     </MainContainer>
   );
