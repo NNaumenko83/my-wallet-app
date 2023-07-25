@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { ButtonStyled } from "../ButtonStyled/ButtonStyled";
-import { Form, InfoText } from "./TransferTokenForm.styled";
+import { Form, InfoText, Label } from "./TransferTokenForm.styled";
 import Input from "../Input/Input";
 import PropTypes from "prop-types";
 import { ErrorText } from "./TransferTokenForm.styled";
@@ -82,9 +82,9 @@ export const TransferTokenForm = ({ transferTokens, balance }) => {
     : 18;
 
   return (
-    <div>
+    <>
       <Form onSubmit={onSubmitFormHandler}>
-        <label>
+        <Label>
           Send to:
           <Input
             placeholder="0x0000....."
@@ -92,13 +92,13 @@ export const TransferTokenForm = ({ transferTokens, balance }) => {
             name="address"
             value={receiverAddress}
           />
-        </label>
+        </Label>
 
         {!isAddressValid && (
           <ErrorText>Invalid Ethereum wallet address format</ErrorText>
         )}
 
-        <label>
+        <Label>
           Amount ether:
           <Input
             placeholder="0.000...."
@@ -112,7 +112,7 @@ export const TransferTokenForm = ({ transferTokens, balance }) => {
                   : "none",
             }}
           />
-        </label>
+        </Label>
 
         {!isAmountValid && !isNaN(transferAmount) && transferAmount && (
           <ErrorText>Must not exceed 18 characters after the dot</ErrorText>
@@ -137,7 +137,7 @@ export const TransferTokenForm = ({ transferTokens, balance }) => {
       </Form>
 
       {transactionResult && <div>{transactionResult}</div>}
-    </div>
+    </>
   );
 };
 

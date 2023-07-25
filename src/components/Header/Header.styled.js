@@ -24,7 +24,7 @@ const scaleAnimation = keyframes`
 export const Logo = styled.div`
   display: flex;
   align-items: center;
-  width: 220px;
+  max-width: 220px;
   img {
     width: 40px; /* Adjust the size as needed */
     height: 40px; /* Adjust the size as needed */
@@ -34,9 +34,6 @@ export const Logo = styled.div`
 
 export const LogoText = styled.span`
   display: none;
-
-  @media screen and (min-width: 320px) {
-  }
 
   @media screen and (min-width: 480px) {
     width: 480px;
@@ -93,7 +90,7 @@ export const BalanceAmount = styled.h5`
 `;
 
 export const WalletInfoWrapper = styled.div`
-  width: 145px;
+  max-width: 145px;
   height: 50px;
 
   color: ${ethereumColors.primary};
