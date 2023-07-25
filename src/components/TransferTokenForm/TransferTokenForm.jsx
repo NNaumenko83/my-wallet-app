@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { ButtonStyled } from "../ButtonStyled/ButtonStyled";
 import { Form, InfoText } from "./TransferTokenForm.styled";
 import Input from "../Input/Input";
