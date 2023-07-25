@@ -27,8 +27,10 @@ export const TransferTokenForm = ({ transferTokens, balance }) => {
 
     switch (name) {
       case "address":
+        if (!isAddressValid) {
+          setIsAddressValid(true);
+        }
         setReceiverAddress(value);
-        setIsAddressValid(validateAddress(value));
         break;
       case "amount":
         setTransferAmount(value);
@@ -42,12 +44,16 @@ export const TransferTokenForm = ({ transferTokens, balance }) => {
   const onSubmitFormHandler = async (e) => {
     e.preventDefault();
 
-    // Check if transferAmount is a valid number and less than or equal to balance
+    if (!validateAddress(receiverAddress)) {
+      setIsAddressValid(validateAddress(false));
+      return;
+    }
     if (
       isAddressValid &&
       !isNaN(transferAmount) &&
       Number(transferAmount) <= balance
     ) {
+      // Check if transferAmount is a valid number and less than or equal to balance
       setIsLoading(true);
 
       try {
