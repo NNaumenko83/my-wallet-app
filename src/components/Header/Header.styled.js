@@ -100,7 +100,7 @@ export const WalletInfoWrapper = styled.div`
   font-size: 15px;
 
   @media screen and (min-width: 480px) {
-    width: 160px;
+    width: 170px;
     font-size: 17px;
   }
 `;
