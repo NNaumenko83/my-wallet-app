@@ -10,6 +10,9 @@ export const Form = styled.form`
   gap: 15px;
 
   border-radius: 10px;
+  backdrop-filter: blur(10px);
+
+  color: #aed6f1;
 
   -webkit-box-shadow: 2px 3px 11px 0px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 2px 3px 11px 0px rgba(0, 0, 0, 0.75);

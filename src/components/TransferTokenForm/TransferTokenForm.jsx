@@ -107,7 +107,7 @@ export const TransferTokenForm = ({ transferTokens, balance }) => {
         <Label>
           Amount ether:
           <Input
-            placeholder="0.000...."
+            placeholder="0.000....."
             onChange={onChangeInputHandler}
             name="amount"
             value={transferAmount}
