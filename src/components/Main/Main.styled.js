@@ -6,5 +6,4 @@ export const MainContainer = styled.main`
   align-content: center;
   flex-direction: column;
   flex-grow: 1;
-  outline: 1px solid tomato;
 `;

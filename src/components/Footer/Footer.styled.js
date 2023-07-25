@@ -15,10 +15,16 @@ export const Link = styled.a`
   margin: 0 auto;
   color: #21618c;
   font-size: 12px;
+  @media screen and (min-width: 480px) {
+    font-size: 15px;
+  }
 `;
 
 export const FooterText = styled.p`
   font-size: 12px;
+  @media screen and (min-width: 480px) {
+    font-size: 15px;
+  }
 `;
 
 export const LinkWrapper = styled.div`

@@ -9,8 +9,11 @@ export const Form = styled.form`
   align-items: center;
   gap: 15px;
 
-  border: 1px solid #273746;
   border-radius: 10px;
+
+  -webkit-box-shadow: 2px 3px 11px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 2px 3px 11px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 2px 3px 11px 0px rgba(0, 0, 0, 0.75);
 
   @media screen and (min-width: 480px) {
     width: 400px;
@@ -51,4 +54,9 @@ export const InfoText = styled.span`
 
 export const Label = styled.label`
   width: 100%;
+`;
+
+export const ButtonContentWraper = styled.div`
+  display: flex;
+  gap: 10px;
 `;

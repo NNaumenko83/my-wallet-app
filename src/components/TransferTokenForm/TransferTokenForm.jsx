@@ -1,9 +1,15 @@
 import { useState } from "react";
 import { ButtonStyled } from "../ButtonStyled/ButtonStyled";
-import { Form, InfoText, Label } from "./TransferTokenForm.styled";
+import {
+  ButtonContentWraper,
+  Form,
+  InfoText,
+  Label,
+} from "./TransferTokenForm.styled";
 import Input from "../Input/Input";
 import PropTypes from "prop-types";
 import { ErrorText } from "./TransferTokenForm.styled";
+import { BsFillSendFill } from "react-icons/bs";
 
 export const TransferTokenForm = ({ transferTokens, balance }) => {
   const [receiverAddress, setReceiverAddress] = useState("");
@@ -128,11 +134,19 @@ export const TransferTokenForm = ({ transferTokens, balance }) => {
             !isAmountValid ||
             !Number(transferAmount) ||
             !isAddressValid ||
-            isLoading
+            isLoading ||
+            !receiverAddress
           }
           loading={isLoading}
         >
-          {isLoading ? "Loading..." : "PAY NOW"}
+          {isLoading ? (
+            <span>Loading...</span>
+          ) : (
+            <ButtonContentWraper>
+              <span>PAY NOW</span>
+              <BsFillSendFill />
+            </ButtonContentWraper>
+          )}
         </ButtonStyled>
       </Form>
 

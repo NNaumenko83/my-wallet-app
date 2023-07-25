@@ -90,7 +90,7 @@ export const BalanceAmount = styled.h5`
 `;
 
 export const WalletInfoWrapper = styled.div`
-  max-width: 145px;
+  width: 145px;
   height: 50px;
 
   color: ${ethereumColors.primary};
@@ -101,6 +101,7 @@ export const WalletInfoWrapper = styled.div`
 
   @media screen and (min-width: 480px) {
     width: 160px;
+    font-size: 17px;
   }
 `;
 
