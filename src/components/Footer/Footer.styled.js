@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 
 export const FooterStyled = styled.footer`
-  background-color: #eaf2f8;
+  background-color: #aed6f1;
 `;
 
 export const FooterContainer = styled.div`
