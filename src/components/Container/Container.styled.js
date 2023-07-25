@@ -2,9 +2,9 @@ import styled from "@emotion/styled";
 
 export const ContainerStyled = styled.div`
   margin: 0 auto;
-  padding: 20px;
+  padding: 15px 20px;
   min-width: 320px;
-  outline: 1px solid green;
+  /* outline: 1px solid green; */
 
   @media screen and (min-width: 320px) {
     width: 320px;

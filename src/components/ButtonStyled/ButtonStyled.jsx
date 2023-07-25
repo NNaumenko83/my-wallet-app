@@ -23,13 +23,15 @@ export const ButtonStyled = ({
       endDecorator={loading ? <SendIcon /> : null}
       variant="solid"
       sx={{
-        backgroundColor: "red",
-        width: "100px",
-        color: "#373737",
-        transition: "background-color 250ms linear",
+        bgcolor: "#0d4579",
+        color: "#ffd13b",
+
+        width: "150px",
+        fontSize: "15px",
+        transition: "all 250ms linear",
         ":hover": {
-          bgcolor: "#7b2ec6",
-          color: "#fff",
+          bgcolor: "#ffd13b",
+          color: "#0d4579",
         },
       }}
       onClick={handleClick}

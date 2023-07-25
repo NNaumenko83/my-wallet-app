@@ -131,7 +131,7 @@ export const TransferTokenForm = ({ transferTokens, balance }) => {
           }
           loading={isLoading}
         >
-          {isLoading ? "Loading..." : "Button"}
+          {isLoading ? "Loading..." : "PAY NOW"}
         </ButtonStyled>
       </Form>
 

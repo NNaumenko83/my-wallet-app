@@ -42,13 +42,6 @@ export const LogoText = styled.span`
     width: 480px;
     display: inline;
   }
-
-  @media screen and (min-width: 768px) {
-    width: 768px;
-  }
-  @media screen and (min-width: 1200px) {
-    width: 1200px;
-  }
 `;
 
 export const FirstLogoWord = styled.span`
@@ -97,4 +90,29 @@ export const WalletAddress = styled.p`
 export const BalanceAmount = styled.h5`
   margin: 0;
   color: ${ethereumColors.secondary};
+`;
+
+export const WalletInfoWrapper = styled.div`
+  width: 145px;
+  height: 50px;
+
+  color: ${ethereumColors.primary};
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-size: 15px;
+
+  @media screen and (min-width: 480px) {
+    width: 160px;
+  }
+`;
+
+export const HeaderText = styled.span`
+  font-weight: 600;
+`;
+
+export const HeaderInfoText = styled.div`
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
 `;

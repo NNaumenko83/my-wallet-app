@@ -4,14 +4,34 @@ import {
   FirstLogoWord,
   HeaderContainer,
   HeaderStyled,
+  HeaderText,
   Logo,
   LogoText,
   SecondLogoWord,
 } from "./Header.styled";
 import PropTypes from "prop-types";
-import EthereumLogo from "../../../public/cryptocurrency_crypto_ethereum_icon_230245.svg";
+import EthereumLogo from "/cryptocurrency_crypto_ethereum_icon_230245.svg";
+import { WalletInfoWrapper } from "./Header.styled";
+import { HeaderInfoText } from "./Header.styled";
+import { useState } from "react";
 
 export const Header = ({ requestAccount, balance, walletAddress }) => {
+  console.log("walletAddress:", walletAddress);
+  const [isLoading, setIsLoading] = useState(false);
+
+  const onClickButtonHandler = async () => {
+    setIsLoading(true);
+
+    try {
+      await new Promise((resolve) => setTimeout(resolve, 2000));
+      await requestAccount();
+    } catch (error) {
+      console.error("Error occurred during the transaction:", error);
+    }
+
+    setIsLoading(false);
+  };
+
   return (
     <HeaderStyled>
       <Container>
@@ -24,13 +44,23 @@ export const Header = ({ requestAccount, balance, walletAddress }) => {
             </LogoText>
           </Logo>
 
-          {!balance ? (
-            <ButtonStyled onClick={requestAccount}>Connect wallet</ButtonStyled>
+          {!walletAddress ? (
+            <ButtonStyled
+              onClick={onClickButtonHandler}
+              loading={isLoading}
+              disabled={isLoading}
+            >
+              {isLoading ? "Loading..." : "Connect wallet"}
+            </ButtonStyled>
           ) : (
-            <div>
-              <p>{balance}</p>
-              <p>{walletAddress}</p>
-            </div>
+            <WalletInfoWrapper>
+              <HeaderInfoText>
+                <span>GoerliETH:</span> <HeaderText>{balance}</HeaderText>
+              </HeaderInfoText>
+              <HeaderInfoText>
+                <span>Address:</span> <HeaderText>{walletAddress}</HeaderText>
+              </HeaderInfoText>
+            </WalletInfoWrapper>
           )}
         </HeaderContainer>
       </Container>
