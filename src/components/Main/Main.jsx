@@ -8,7 +8,17 @@ export const Main = (props) => {
   return (
     <MainContainer>
       <Container>
-        {props.walletAddress && <TransferTokenForm {...props} />}
+        {props.walletAddress ? (
+          <TransferTokenForm {...props} />
+        ) : (
+          <div>
+            <h1>Welcome to GoerliETH Wallet</h1>
+            <p>
+              To get started, please click the button CONNECT WALLET to connect
+              your wallet:
+            </p>
+          </div>
+        )}
       </Container>
     </MainContainer>
   );

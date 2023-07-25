@@ -24,13 +24,13 @@ export const ButtonStyled = ({
       variant="solid"
       sx={{
         bgcolor: "#0d4579",
-        color: "#ffd13b",
+        color: "#aed6f1",
 
         width: "150px",
         fontSize: "15px",
         transition: "all 250ms linear",
         ":hover": {
-          bgcolor: "#ffd13b",
+          bgcolor: "#aed6f1",
           color: "#0d4579",
         },
       }}

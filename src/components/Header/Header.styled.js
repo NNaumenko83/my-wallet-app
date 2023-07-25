@@ -1,8 +1,8 @@
 import styled, { keyframes } from "styled-components";
 
 const ethereumColors = {
-  primary: "#3C3C3D", // Ethereum black
-  secondary: "#627EEA", // Ethereum blue
+  primary: "#154360", // Ethereum black
+  secondary: "#aed6f1", // Ethereum blue
   text: "#FFFFFF", // White text color
 };
 
