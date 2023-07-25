@@ -95,7 +95,7 @@ export const TransferTokenForm = ({ transferTokens, balance }) => {
         </label>
 
         {!isAddressValid && (
-          <ErrorText>Неправильний формат адреси гаманця Ethereum</ErrorText>
+          <ErrorText>Invalid Ethereum wallet address format</ErrorText>
         )}
 
         <label>
@@ -115,11 +115,11 @@ export const TransferTokenForm = ({ transferTokens, balance }) => {
         </label>
 
         {!isAmountValid && !isNaN(transferAmount) && transferAmount && (
-          <ErrorText>Повинно бути не більше 18 символів після крапки</ErrorText>
+          <ErrorText>Must not exceed 18 characters after the dot</ErrorText>
         )}
-        {isNaN(transferAmount) && <ErrorText>Введіть цифри</ErrorText>}
+        {isNaN(transferAmount) && <ErrorText>Enter numbers</ErrorText>}
         {isAmountValid && hasDecimalPoint && (
-          <InfoText>Залишилось символів: {remainingChars}</InfoText>
+          <InfoText>Characters left: {remainingChars}</InfoText>
         )}
 
         <ButtonStyled
