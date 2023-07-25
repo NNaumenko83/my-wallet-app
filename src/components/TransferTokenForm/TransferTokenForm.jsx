@@ -3,6 +3,7 @@ import { ButtonStyled } from "../ButtonStyled/ButtonStyled";
 import { Form } from "./TransferTokenForm.styled";
 import Input from "../Input/Input";
 import PropTypes from "prop-types";
+import { ErrorText } from "./TransferTokenForm.styled";
 
 export const TransferTokenForm = ({ transferTokens, balance }) => {
   const [receiverAddress, setReceiverAddress] = useState("");
@@ -93,6 +94,10 @@ export const TransferTokenForm = ({ transferTokens, balance }) => {
           />
         </label>
 
+        {!isAddressValid && (
+          <ErrorText>Неправильний формат адреси гаманця Ethereum</ErrorText>
+        )}
+
         <label>
           Amount ether:
           <Input
@@ -110,21 +115,11 @@ export const TransferTokenForm = ({ transferTokens, balance }) => {
         </label>
 
         {!isAmountValid && !isNaN(transferAmount) && transferAmount && (
-          <span style={{ color: "red" }}>
-            Повинно бути не більше 18 символів після крапки
-          </span>
+          <ErrorText>Повинно бути не більше 18 символів після крапки</ErrorText>
         )}
-        {isNaN(transferAmount) && (
-          <span style={{ color: "red" }}>Введіть цифри</span>
-        )}
+        {isNaN(transferAmount) && <ErrorText>Введіть цифри</ErrorText>}
         {isAmountValid && hasDecimalPoint && (
-          <span>Залишилось символів: {remainingChars}</span>
-        )}
-
-        {!isAddressValid && (
-          <span style={{ color: "red" }}>
-            Неправильний формат адреси гаманця Ethereum
-          </span>
+          <ErrorText>Залишилось символів: {remainingChars}</ErrorText>
         )}
 
         <ButtonStyled

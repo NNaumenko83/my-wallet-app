@@ -10,3 +10,8 @@ export const Form = styled.form`
   align-items: center;
   gap: 15px;
 `;
+
+export const ErrorText = styled.span`
+  color: #dc0120;
+  font-size: 15px;
+`;
