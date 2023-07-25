@@ -15,3 +15,8 @@ export const ErrorText = styled.span`
   color: #dc0120;
   font-size: 15px;
 `;
+
+export const InfoText = styled.span`
+  color: #00321e;
+  font-size: 15px;
+`;

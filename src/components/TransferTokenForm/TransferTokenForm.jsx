@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { ButtonStyled } from "../ButtonStyled/ButtonStyled";
-import { Form } from "./TransferTokenForm.styled";
+import { Form, InfoText } from "./TransferTokenForm.styled";
 import Input from "../Input/Input";
 import PropTypes from "prop-types";
 import { ErrorText } from "./TransferTokenForm.styled";
@@ -119,7 +119,7 @@ export const TransferTokenForm = ({ transferTokens, balance }) => {
         )}
         {isNaN(transferAmount) && <ErrorText>Введіть цифри</ErrorText>}
         {isAmountValid && hasDecimalPoint && (
-          <ErrorText>Залишилось символів: {remainingChars}</ErrorText>
+          <InfoText>Залишилось символів: {remainingChars}</InfoText>
         )}
 
         <ButtonStyled
