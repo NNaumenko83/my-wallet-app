@@ -43,12 +43,12 @@ function App() {
     console.log("receiverAddress:", receiverAddress);
     console.log("signer", signer);
     console.log(ethers.parseEther(transferAmount));
-    const tx = await signer.sendTransaction({
-      to: receiverAddress,
-      value: ethers.parseEther(transferAmount),
-    });
+    // const tx = await signer.sendTransaction({
+    //   to: receiverAddress,
+    //   value: ethers.parseEther(transferAmount),
+    // });
 
-    console.log("tx", tx);
+    // console.log("tx", tx);
   };
 
   return (
@@ -58,7 +58,11 @@ function App() {
         balance={balance}
         walletAdress={walletAdress}
       />
-      <Main walletAdress={walletAdress} transferTokens={transferTokens} />
+      <Main
+        walletAdress={walletAdress}
+        transferTokens={transferTokens}
+        balance={balance}
+      />
       <Footer />
     </>
   );

@@ -8,7 +8,7 @@ export const Header = ({ requestAccount, balance, walletAdress }) => {
     <header>
       <Container>
         <HeaderContainer>
-          <h3>Logo</h3>
+          <h3>ЕthereGoerli Wallet</h3>
           {!balance ? (
             <ButtonStyled onClick={requestAccount}>Connect wallet</ButtonStyled>
           ) : (

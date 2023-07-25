@@ -2,12 +2,10 @@ import { Container } from "../Container/Container";
 import { TransferTokenForm } from "../TransferTokenForm/TransferTokenForm";
 import { MainContainer } from "./Main.styled";
 
-export const Main = ({...props}) => {
+export const Main = ({ walletAdress, ...props }) => {
   return (
     <MainContainer>
-      <Container>
-        <TransferTokenForm {...props} />
-      </Container>
+      <Container>{walletAdress && <TransferTokenForm {...props} />}</Container>
     </MainContainer>
   );
 };
