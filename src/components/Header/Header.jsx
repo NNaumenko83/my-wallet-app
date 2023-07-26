@@ -14,8 +14,10 @@ import EthereumLogo from "/cryptocurrency_crypto_ethereum_icon_230245.svg";
 import { WalletInfoWrapper } from "./Header.styled";
 import { HeaderInfoText } from "./Header.styled";
 import { useHeaderButtonHandler } from "../../hooks/useHeaderButtonHandler";
+import { formatBalance } from "../../helpers/formatBalance";
 
 export const Header = ({ requestAccount, balance, walletAddress }) => {
+  console.log("balance type:", typeof balance);
   const { isLoading, onClickButtonHandler } =
     useHeaderButtonHandler(requestAccount);
 
@@ -42,7 +44,8 @@ export const Header = ({ requestAccount, balance, walletAddress }) => {
           ) : (
             <WalletInfoWrapper>
               <HeaderInfoText>
-                <span>GoerliETH:</span> <HeaderText>{balance}</HeaderText>
+                <span>GoerliETH:</span>
+                <HeaderText>{formatBalance(balance)}</HeaderText>
               </HeaderInfoText>
               <HeaderInfoText>
                 <span>Address:</span> <HeaderText>{walletAddress}</HeaderText>

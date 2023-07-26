@@ -12,3 +12,18 @@ export const MainContainer = styled.main`
   background-image: url(${image});
   background-position: center;
 `;
+
+export const GreetingWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  color: #ffffa3;
+`;
+
+export const GreetingTitle = styled.h1`
+  font-size: 15px;
+  @media screen and (min-width: 480px) {
+    font-size: 20px;
+  }
+`;

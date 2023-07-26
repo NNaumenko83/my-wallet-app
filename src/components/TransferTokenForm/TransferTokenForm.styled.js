@@ -44,14 +44,7 @@ export const InfoText = styled.span`
   font-size: 10px;
 
   @media screen and (min-width: 480px) {
-    font-size: 10px;
-  }
-
-  @media screen and (min-width: 768px) {
-    font-size: 10px;
-  }
-  @media screen and (min-width: 1200px) {
-    font-size: 10px;
+    font-size: 15px;
   }
 `;
 

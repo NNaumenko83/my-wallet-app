@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { toast } from "react-toastify";
+
 import { ButtonStyled } from "../ButtonStyled/ButtonStyled";
 import {
   ButtonContentWraper,
@@ -10,6 +12,7 @@ import Input from "../Input/Input";
 import PropTypes from "prop-types";
 import { ErrorText } from "./TransferTokenForm.styled";
 import { BsFillSendFill } from "react-icons/bs";
+import { formatErrorMessage } from "../../helpers/formatErrorMessage";
 
 export const TransferTokenForm = ({ transferTokens, balance }) => {
   const [receiverAddress, setReceiverAddress] = useState("");
@@ -17,7 +20,6 @@ export const TransferTokenForm = ({ transferTokens, balance }) => {
   const [isAmountValid, setIsAmountValid] = useState(true);
   const [isAddressValid, setIsAddressValid] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
-  const [transactionResult, setTransactionResult] = useState("");
 
   const validateAmount = (value) => {
     const validAmountPattern = /^\d+(\.\d{0,18})?$/;
@@ -37,7 +39,7 @@ export const TransferTokenForm = ({ transferTokens, balance }) => {
         if (!isAddressValid) {
           setIsAddressValid(true);
         }
-        setReceiverAddress(value);
+        setReceiverAddress(value.trim());
         break;
       case "amount":
         setTransferAmount(value);
@@ -50,36 +52,52 @@ export const TransferTokenForm = ({ transferTokens, balance }) => {
 
   const onSubmitFormHandler = async (e) => {
     e.preventDefault();
+    console.log("Number(balance)", Number(balance));
 
     if (!validateAddress(receiverAddress)) {
       setIsAddressValid(validateAddress(false));
       return;
     }
-    if (
-      isAddressValid &&
-      !isNaN(transferAmount) &&
-      Number(transferAmount) <= balance
-    ) {
-      // Check if transferAmount is a valid number and less than or equal to balance
-      setIsLoading(true);
 
-      try {
-        await new Promise((resolve) => setTimeout(resolve, 2000));
-        console.log(receiverAddress);
-        console.log(transferAmount);
-        await transferTokens(receiverAddress, transferAmount);
-        setTransactionResult("Transaction successful!");
-      } catch (error) {
-        console.error("Error occurred during the transaction:", error);
-        setTransactionResult("Transaction failed. Please try again.");
-      }
+    setIsLoading(true);
 
-      setIsLoading(false);
+    try {
+      console.log(receiverAddress);
+      console.log(transferAmount);
+      await transferTokens(receiverAddress, transferAmount);
+
+      toast.success("Transaction successful!", {
+        position: "top-center",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+      });
+
       setReceiverAddress("");
       setTransferAmount("");
-    } else {
-      console.log("Invalid transfer amount or amount exceeds the balance");
+    } catch (error) {
+      console.error(
+        "Error occurred during the transaction:",
+        formatErrorMessage(error.message)
+      );
+
+      toast.error(formatErrorMessage(error.message), {
+        position: "top-center",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+      });
     }
+
+    setIsLoading(false);
   };
 
   const hasDecimalPoint = transferAmount.includes(".");
@@ -149,8 +167,6 @@ export const TransferTokenForm = ({ transferTokens, balance }) => {
           )}
         </ButtonStyled>
       </Form>
-
-      {transactionResult && <div>{transactionResult}</div>}
     </>
   );
 };
