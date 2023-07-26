@@ -15,6 +15,14 @@ export const Link = styled.a`
   margin: 0 auto;
   color: #21618c;
   font-size: 12px;
+
+  transition: color 300ms ease-in-out;
+
+  :hover,
+  :focus {
+    color: #120953;
+  }
+
   @media screen and (min-width: 480px) {
     font-size: 15px;
   }
