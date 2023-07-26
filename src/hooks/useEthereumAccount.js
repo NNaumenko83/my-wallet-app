@@ -1,5 +1,6 @@
 import { ethers } from "ethers";
 import { useState } from "react";
+import detectEthereumProvider from "@metamask/detect-provider";
 import { formatAddress } from "../helpers/formatAddress";
 
 export function useEthereumAccount() {
@@ -9,8 +10,11 @@ export function useEthereumAccount() {
   const [provider, setProvider] = useState();
 
   async function requestAccount() {
-    if (window.ethereum) {
-      const provider = new ethers.BrowserProvider(window.ethereum);
+    const test = await detectEthereumProvider();
+    if (test) {
+      // console.log("window.ethereum):", window.ethereum);
+      // console.log("test:", test);
+      const provider = new ethers.BrowserProvider(test);
 
       const signer = await provider.getSigner();
 
