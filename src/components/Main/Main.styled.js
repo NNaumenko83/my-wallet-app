@@ -22,8 +22,11 @@ export const GreetingWrapper = styled.div`
 `;
 
 export const GreetingTitle = styled.h1`
-  font-size: 15px;
+  font-size: 18px;
   @media screen and (min-width: 480px) {
     font-size: 20px;
+  }
+  @media screen and (min-width: 768px) {
+    font-size: 40px;
   }
 `;
