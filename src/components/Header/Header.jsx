@@ -1,5 +1,6 @@
 import { ButtonStyled } from "../ButtonStyled/ButtonStyled";
 import { Container } from "../Container/Container";
+import { toast } from "react-toastify";
 import {
   FirstLogoWord,
   HeaderContainer,
@@ -23,10 +24,21 @@ export const Header = ({ requestAccount, balance, walletAddress }) => {
     setIsLoading(true);
 
     try {
-      await new Promise((resolve) => setTimeout(resolve, 2000));
       await requestAccount();
     } catch (error) {
-      console.error("Error occurred during the transaction:", error);
+      toast.error(
+        "Error occurred during the request! Maybe MetaMask  already processing requestAccounts",
+        {
+          position: "top-center",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "dark",
+        }
+      );
     }
 
     setIsLoading(false);
