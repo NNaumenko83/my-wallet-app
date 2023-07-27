@@ -29,14 +29,6 @@ export function useEthereumAccount() {
   }
 
   async function transferTokens(receiverAddress, transferAmount) {
-    console.log("transferAmount:", transferAmount);
-    const transferAmountFormated = ethers.parseEther(transferAmount);
-    console.log("transferAmountFormated:", transferAmountFormated);
-    const dec = BigInt(10);
-    console.log("dec:", dec);
-
-    const res = transferAmountFormated % dec;
-    console.log("res:", res);
     const tx = await signer.sendTransaction({
       to: receiverAddress,
       value: ethers.parseEther(transferAmount),

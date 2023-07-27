@@ -7,21 +7,12 @@ import { Main } from "./components/Main/Main";
 import { useEthereumAccount } from "./hooks/useEthereumAccount";
 
 function App() {
-  const { balance, walletAddress, requestAccount, transferTokens } =
-    useEthereumAccount();
+  const { balance, walletAddress, requestAccount, transferTokens } = useEthereumAccount();
 
   return (
     <>
-      <Header
-        requestAccount={requestAccount}
-        balance={balance}
-        walletAddress={walletAddress}
-      />
-      <Main
-        walletAddress={walletAddress}
-        transferTokens={transferTokens}
-        balance={balance}
-      />
+      <Header requestAccount={requestAccount} balance={balance} walletAddress={walletAddress} />
+      <Main walletAddress={walletAddress} transferTokens={transferTokens} balance={balance} />
       <Footer />
       <ToastContainer />
     </>

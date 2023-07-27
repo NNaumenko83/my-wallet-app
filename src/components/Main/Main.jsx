@@ -4,7 +4,6 @@ import { MainContainer, GreetingWrapper, GreetingTitle } from "./Main.styled";
 import PropTypes from "prop-types";
 
 export const Main = props => {
-  console.log(props.walletAddress);
   return (
     <MainContainer>
       <Container>

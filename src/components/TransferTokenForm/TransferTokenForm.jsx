@@ -9,7 +9,7 @@ import { ErrorText } from "./TransferTokenForm.styled";
 import { BsFillSendFill } from "react-icons/bs";
 import { formatErrorMessage } from "../../helpers/formatErrorMessage";
 
-export const TransferTokenForm = ({ transferTokens, balance }) => {
+export const TransferTokenForm = ({ transferTokens }) => {
   const [receiverAddress, setReceiverAddress] = useState("");
   const [transferAmount, setTransferAmount] = useState("");
   const [isAmountValid, setIsAmountValid] = useState(true);
@@ -47,7 +47,6 @@ export const TransferTokenForm = ({ transferTokens, balance }) => {
 
   const onSubmitFormHandler = async e => {
     e.preventDefault();
-    console.log("Number(balance)", Number(balance));
 
     if (!validateAddress(receiverAddress)) {
       setIsAddressValid(validateAddress(false));
@@ -57,8 +56,6 @@ export const TransferTokenForm = ({ transferTokens, balance }) => {
     setIsLoading(true);
 
     try {
-      console.log(receiverAddress);
-      console.log(transferAmount);
       await transferTokens(receiverAddress, transferAmount);
 
       toast.success("Transaction successful!", {

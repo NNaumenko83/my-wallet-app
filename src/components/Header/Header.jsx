@@ -17,7 +17,6 @@ import { useHeaderButtonHandler } from "../../hooks/useHeaderButtonHandler";
 import { formatBalance } from "../../helpers/formatBalance";
 
 export const Header = ({ requestAccount, balance, walletAddress }) => {
-  console.log("balance type:", typeof balance);
   const { isLoading, onClickButtonHandler } = useHeaderButtonHandler(requestAccount);
 
   return (
