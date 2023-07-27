@@ -1,10 +1,5 @@
 import { Container } from "../Container/Container";
-import {
-  FooterStyled,
-  FooterContainer,
-  Link,
-  LinkWrapper,
-} from "./Footer.styled";
+import { FooterStyled, FooterContainer, Link, LinkWrapper } from "./Footer.styled";
 import { ImLinkedin2, ImGithub } from "react-icons/im";
 import { FooterText } from "./Footer.styled";
 

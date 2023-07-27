@@ -9,7 +9,7 @@ export const ButtonStyled = ({
   onClick,
   ...otherProps
 }) => {
-  const handleClick = (event) => {
+  const handleClick = event => {
     if (!loading && onClick) {
       onClick(event);
     }

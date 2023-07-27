@@ -1,12 +1,7 @@
 import Input from "@mui/joy/Input";
 import PropTypes from "prop-types";
 
-export default function FocusOutlineInput({
-  onChange,
-  placeholder,
-  name,
-  value,
-}) {
+export default function FocusOutlineInput({ onChange, placeholder, name, value }) {
   return (
     <Input
       placeholder={placeholder}

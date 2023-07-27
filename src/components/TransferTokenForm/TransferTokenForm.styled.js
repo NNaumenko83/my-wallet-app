@@ -40,7 +40,7 @@ export const ErrorText = styled.span`
 `;
 
 export const InfoText = styled.span`
-  color: #00321e;
+  color: #aed6f1;
   font-size: 10px;
 
   @media screen and (min-width: 480px) {

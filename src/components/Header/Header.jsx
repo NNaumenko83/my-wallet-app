@@ -18,8 +18,7 @@ import { formatBalance } from "../../helpers/formatBalance";
 
 export const Header = ({ requestAccount, balance, walletAddress }) => {
   console.log("balance type:", typeof balance);
-  const { isLoading, onClickButtonHandler } =
-    useHeaderButtonHandler(requestAccount);
+  const { isLoading, onClickButtonHandler } = useHeaderButtonHandler(requestAccount);
 
   return (
     <HeaderStyled>
@@ -34,11 +33,7 @@ export const Header = ({ requestAccount, balance, walletAddress }) => {
           </Logo>
 
           {!walletAddress ? (
-            <ButtonStyled
-              onClick={onClickButtonHandler}
-              loading={isLoading}
-              disabled={isLoading}
-            >
+            <ButtonStyled onClick={onClickButtonHandler} loading={isLoading} disabled={isLoading}>
               {isLoading ? "Waiting for connect..." : "Connect wallet"}
             </ButtonStyled>
           ) : (

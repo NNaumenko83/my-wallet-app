@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { toast } from "react-toastify";
 
-export const useHeaderButtonHandler = (requestAccount) => {
+export const useHeaderButtonHandler = requestAccount => {
   const [isLoading, setIsLoading] = useState(false);
 
   const onClickButtonHandler = async () => {

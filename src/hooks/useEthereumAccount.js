@@ -23,7 +23,6 @@ export function useEthereumAccount() {
       setSigner(signer);
       setProvider(provider);
     } else {
-      // Якщо MetaMask не встановлено, відкрийте deep link.
       const deepLink = `https://metamask.app.link/dapp/my-wallet-app-delta.vercel.app/`;
       window.open(deepLink, "_blank");
     }

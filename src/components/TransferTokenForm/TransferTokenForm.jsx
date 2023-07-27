@@ -2,12 +2,7 @@ import { useState } from "react";
 import { toast } from "react-toastify";
 
 import { ButtonStyled } from "../ButtonStyled/ButtonStyled";
-import {
-  ButtonContentWraper,
-  Form,
-  InfoText,
-  Label,
-} from "./TransferTokenForm.styled";
+import { ButtonContentWraper, Form, InfoText, Label } from "./TransferTokenForm.styled";
 import Input from "../Input/Input";
 import PropTypes from "prop-types";
 import { ErrorText } from "./TransferTokenForm.styled";
@@ -21,17 +16,17 @@ export const TransferTokenForm = ({ transferTokens, balance }) => {
   const [isAddressValid, setIsAddressValid] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
 
-  const validateAmount = (value) => {
+  const validateAmount = value => {
     const validAmountPattern = /^\d+(\.\d{0,18})?$/;
     return validAmountPattern.test(value);
   };
 
-  const validateAddress = (address) => {
+  const validateAddress = address => {
     const validAddressPattern = /^0x[a-fA-F0-9]{40}$/;
     return validAddressPattern.test(address);
   };
 
-  const onChangeInputHandler = (e) => {
+  const onChangeInputHandler = e => {
     const { name, value } = e.target;
 
     switch (name) {
@@ -50,7 +45,7 @@ export const TransferTokenForm = ({ transferTokens, balance }) => {
     }
   };
 
-  const onSubmitFormHandler = async (e) => {
+  const onSubmitFormHandler = async e => {
     e.preventDefault();
     console.log("Number(balance)", Number(balance));
 
@@ -80,10 +75,7 @@ export const TransferTokenForm = ({ transferTokens, balance }) => {
       setReceiverAddress("");
       setTransferAmount("");
     } catch (error) {
-      console.error(
-        "Error occurred during the transaction:",
-        formatErrorMessage(error.message)
-      );
+      console.error("Error occurred during the transaction:", formatErrorMessage(error.message));
 
       toast.error(formatErrorMessage(error.message), {
         position: "top-center",
@@ -101,9 +93,7 @@ export const TransferTokenForm = ({ transferTokens, balance }) => {
   };
 
   const hasDecimalPoint = transferAmount.includes(".");
-  const remainingChars = hasDecimalPoint
-    ? 18 - transferAmount.split(".")[1].length
-    : 18;
+  const remainingChars = hasDecimalPoint ? 18 - transferAmount.split(".")[1].length : 18;
 
   return (
     <>
@@ -118,9 +108,7 @@ export const TransferTokenForm = ({ transferTokens, balance }) => {
           />
         </Label>
 
-        {!isAddressValid && (
-          <ErrorText>Invalid Ethereum wallet address format</ErrorText>
-        )}
+        {!isAddressValid && <ErrorText>Invalid Ethereum wallet address format</ErrorText>}
 
         <Label>
           Amount ether:
@@ -130,10 +118,7 @@ export const TransferTokenForm = ({ transferTokens, balance }) => {
             name="amount"
             value={transferAmount}
             style={{
-              outline:
-                !isAmountValid || isNaN(transferAmount)
-                  ? "2px solid red"
-                  : "none",
+              outline: !isAmountValid || isNaN(transferAmount) ? "2px solid red" : "none",
             }}
           />
         </Label>
@@ -142,9 +127,7 @@ export const TransferTokenForm = ({ transferTokens, balance }) => {
           <ErrorText>Must not exceed 18 characters after the dot</ErrorText>
         )}
         {isNaN(transferAmount) && <ErrorText>Enter numbers</ErrorText>}
-        {isAmountValid && hasDecimalPoint && (
-          <InfoText>Characters left: {remainingChars}</InfoText>
-        )}
+        {isAmountValid && hasDecimalPoint && <InfoText>Characters left: {remainingChars}</InfoText>}
 
         <ButtonStyled
           type="submit"

@@ -1,4 +1,4 @@
-export const formatErrorMessage = (message) => {
+export const formatErrorMessage = message => {
   console.log("message:", message);
   console.log("message type:", typeof message);
   const indexOfParenthesis = message.indexOf("(");
