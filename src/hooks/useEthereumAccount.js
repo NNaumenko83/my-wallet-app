@@ -1,7 +1,11 @@
 import { ethers } from "ethers";
 import { useState } from "react";
-import detectEthereumProvider from "@metamask/detect-provider";
+import { MetaMaskSDK } from "@metamask/sdk";
+
 import { formatAddress } from "../helpers/formatAddress";
+
+// DEEPL LNK
+// https://metamask.app.link/dapp/my-wallet-app-delta.vercel.app/
 
 export function useEthereumAccount() {
   const [balance, setBalance] = useState(null);
@@ -10,11 +14,22 @@ export function useEthereumAccount() {
   const [provider, setProvider] = useState();
 
   async function requestAccount() {
-    const test = await detectEthereumProvider();
-    if (test) {
+    console.log("Hello");
+    console.log(MetaMaskSDK);
+    const sdk = new MetaMaskSDK({
+      openDeeplink:
+        "https://metamask.app.link/dapp/my-wallet-app-delta.vercel.app/",
+    });
+
+    const ethereum = sdk.getProvider();
+
+    const test = new ethers.providers.WebBrowserProvider3Provider(ethereum);
+    console.log("test:", test);
+
+    if (window.ethereum) {
       // console.log("window.ethereum):", window.ethereum);
       // console.log("test:", test);
-      const provider = new ethers.BrowserProvider(test);
+      const provider = new ethers.BrowserProvider(window.ethereum);
 
       const signer = await provider.getSigner();
 
