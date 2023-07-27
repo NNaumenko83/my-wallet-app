@@ -69,6 +69,7 @@
 
 import { ethers } from "ethers";
 import { useState } from "react";
+import { toast } from "react-toastify";
 
 import { formatAddress } from "../helpers/formatAddress";
 
@@ -86,8 +87,29 @@ export function useEthereumAccount() {
       const provider = new ethers.BrowserProvider(window.ethereum);
 
       const signer = await provider.getSigner();
+      console.log("signer:", signer);
+      toast.info(`${JSON.stringify(signer)}`, {
+        position: "top-center",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+      });
 
       const balance = await provider.getBalance(signer.address);
+      toast.info(ethers.formatEther(balance), {
+        position: "top-center",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+      });
 
       const formatted = formatAddress(signer.address);
 
