@@ -10,11 +10,11 @@ import {
   SecondLogoWord,
 } from "./Header.styled";
 import PropTypes from "prop-types";
+
 import EthereumLogo from "/cryptocurrency_crypto_ethereum_icon_230245.svg";
-import { WalletInfoWrapper } from "./Header.styled";
-import { HeaderInfoText } from "./Header.styled";
+import { WalletInfoWrapper, HeaderInfoText } from "./Header.styled";
 import { useHeaderButtonHandler } from "../../hooks/useHeaderButtonHandler";
-import { formatBalance } from "../../helpers/formatBalance";
+import { formatBalance } from "../../helpers";
 
 export const Header = ({ requestAccount, balance, walletAddress }) => {
   const { isLoading, onClickButtonHandler } = useHeaderButtonHandler(requestAccount);

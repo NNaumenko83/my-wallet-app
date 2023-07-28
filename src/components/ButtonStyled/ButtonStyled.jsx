@@ -1,6 +1,7 @@
+import PropTypes from "prop-types";
+
 import SendIcon from "@mui/icons-material/Send";
 import Button from "@mui/joy/Button";
-import PropTypes from "prop-types";
 
 export const ButtonStyled = ({
   loading = false,

@@ -1,7 +1,8 @@
+import PropTypes from "prop-types";
+
 import { Container } from "../Container/Container";
 import { TransferTokenForm } from "../TransferTokenForm/TransferTokenForm";
 import { MainContainer, GreetingWrapper, GreetingTitle } from "./Main.styled";
-import PropTypes from "prop-types";
 
 export const Main = props => {
   return (

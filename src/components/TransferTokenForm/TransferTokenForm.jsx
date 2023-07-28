@@ -1,13 +1,12 @@
 import { useState } from "react";
 import { toast } from "react-toastify";
+import PropTypes from "prop-types";
+import { BsFillSendFill } from "react-icons/bs";
 
 import { ButtonStyled } from "../ButtonStyled/ButtonStyled";
-import { ButtonContentWraper, Form, InfoText, Label } from "./TransferTokenForm.styled";
+import { ButtonContentWraper, Form, InfoText, Label, ErrorText } from "./TransferTokenForm.styled";
 import Input from "../Input/Input";
-import PropTypes from "prop-types";
-import { ErrorText } from "./TransferTokenForm.styled";
-import { BsFillSendFill } from "react-icons/bs";
-import { formatErrorMessage } from "../../helpers/formatErrorMessage";
+import { validateAddress, validateAmount, formatErrorMessage } from "../../helpers";
 
 export const TransferTokenForm = ({ transferTokens }) => {
   const [receiverAddress, setReceiverAddress] = useState("");
@@ -15,16 +14,6 @@ export const TransferTokenForm = ({ transferTokens }) => {
   const [isAmountValid, setIsAmountValid] = useState(true);
   const [isAddressValid, setIsAddressValid] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
-
-  const validateAmount = value => {
-    const validAmountPattern = /^\d+(\.\d{0,18})?$/;
-    return validAmountPattern.test(value);
-  };
-
-  const validateAddress = address => {
-    const validAddressPattern = /^0x[a-fA-F0-9]{40}$/;
-    return validAddressPattern.test(address);
-  };
 
   const onChangeInputHandler = e => {
     const { name, value } = e.target;
@@ -72,8 +61,6 @@ export const TransferTokenForm = ({ transferTokens }) => {
       setReceiverAddress("");
       setTransferAmount("");
     } catch (error) {
-      console.error("Error occurred during the transaction:", formatErrorMessage(error.message));
-
       toast.error(formatErrorMessage(error.message), {
         position: "top-center",
         autoClose: 3000,

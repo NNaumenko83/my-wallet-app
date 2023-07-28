@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+
 import { ContainerStyled } from "./Container.styled";
 
 export const Container = ({ children }) => {
