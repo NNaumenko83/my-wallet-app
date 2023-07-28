@@ -21,6 +21,10 @@ export const GreetingWrapper = styled.div`
   color: #ffffa3;
 `;
 
+export const GreetengText = styled.p`
+  text-align: center;
+`;
+
 export const GreetingTitle = styled.h1`
   font-size: 18px;
   @media screen and (min-width: 480px) {
